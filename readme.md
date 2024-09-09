@@ -12,13 +12,6 @@ This is the code for Dynamic 2D Gaussians: Geometrically accurate radiance field
 </div>
 
 <div align="center">
-  <img src="./assets/family.gif" width="24.5%">
-  <img src="./assets/horse.gif" width="24.5%">
-  <img src="./assets/hand.gif" width="24.5%">
-  <img src="./assets/plant.gif" width="24.5%">
-</div>
-
-<div align="center">
   <img src="./assets/edited_jumpingjacks.gif" width="24.5%">
   <img src="./assets/edited_hook.gif" width="24.5%">
   <img src="./assets/edited_mutant.gif" width="24.5%">
