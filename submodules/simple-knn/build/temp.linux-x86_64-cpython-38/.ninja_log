@@ -1,0 +1,4 @@
+# ninja log v5
+0	12568	1714447777927941435	/data3/zhangshuai/SC-GS/submodules/simple-knn/build/temp.linux-x86_64-cpython-38/simple_knn.o	d6be5e9795358427
+0	28641	1714447793980569547	/data3/zhangshuai/SC-GS/submodules/simple-knn/build/temp.linux-x86_64-cpython-38/ext.o	61bcfb65caf6f27e
+0	55228	1714447820585603754	/data3/zhangshuai/SC-GS/submodules/simple-knn/build/temp.linux-x86_64-cpython-38/spatial.o	967780dce156ff23

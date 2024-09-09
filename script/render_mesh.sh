@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=2 python render_mesh.py --source_path /data3/zhangshuai/SC-GS/data/bouncingballs --model_path outputs/bouncingballs_normal2 --deform_type mlp --node_num 512 --hyper_dim 8 --is_blender --eval --local_frame --resolution 2
