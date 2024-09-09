@@ -1,12 +1,8 @@
 <h1 align="center">
-  SC-GS: Sparse-Controlled Gaussian Splatting for Editable Dynamic Scenes
-
-  <a href="https://www.hku.hk/"><img height="70" src="assets/HKU.png"> </a>
-  <a href="https://github.com/VAST-AI-Research/"><img height="70" src="assets/VAST.png"> </a>
-  <a href="https://www.zju.edu.cn/english/"><img height="70" src="assets/ZJU.png"> </a> 
+  Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects
 </h1>
 
-This is the code for SC-GS: Sparse-Controlled Gaussian Splatting for Editable Dynamic Scenes.
+This is the code for Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects.
 
 <div align="center">
   
