@@ -1,1 +1,0 @@
-CUDA_VISIBLE_DEVICES=2 python render.py --source_path /data3/zhangshuai/SC-GS/data/jumpingjacks --model_path outputs/jumpingjacks_normal_node --deform_type node --node_num 512 --hyper_dim 8 --is_blender --eval --gt_alpha_mask_as_scene_mask --local_frame --resolution 2 --W 800 --H 800
