@@ -13,7 +13,7 @@
 
 ### [arXiv Paper](https://arxiv.org/abs/2403.19586)
 
-[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2</sup>,[Bin Feng]() <sup>1</sup>,
+[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Bin Feng]() <sup>1</sup>,
 [Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
 
 <sup>1</sup> School of Electronic Information and Communications, Huazhong University of Science and Technology \
@@ -23,6 +23,7 @@
 
 </div>
 
+---
 
 <div align="center">
   <img src="./assets/teaser.png" width="100%" height="100%">
