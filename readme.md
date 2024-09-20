@@ -1,3 +1,12 @@
+
+<div align="center">
+  <img src="./assets/bouncingballs.gif" width="24.5%">
+  <img src="./assets/horse.gif" width="24.5%">
+  <img src="./assets/jumpingjacks.gif" width="24.5%">
+  <img src="./assets/standup.gif" width="24.5%">
+
+</div>
+<div align="center">
 <h1 align="center">
   Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects
 </h1>
@@ -11,13 +20,6 @@
 <sup>2</sup>  School of Computer Science &Technology, Huazhong University of Science and Technology 
 
 (\* equal contribution,📧 corresponding author) 
-
-
-<div align="center">
-  <img src="./assets/bouncingballs.gif" width="24.5%">
-  <img src="./assets/horse.gif" width="24.5%">
-  <img src="./assets/jumpingjacks.gif" width="24.5%">
-  <img src="./assets/standup.gif" width="24.5%">
 
 </div>
 
