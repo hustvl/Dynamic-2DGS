@@ -42,8 +42,8 @@
 ## Install
 
 ```bash
-git clone https://github.com/yihua7/SC-GS --recursive
-cd SC-GS
+git clone --recursive
+cd Dynamic-2DGS
 
 pip install -r requirements.txt
 
@@ -76,7 +76,7 @@ CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/
 
 ## Acknowledgement
 
-* Our work is developed on the basis of [DG-Mesh](https://github.com/Isabella98Liu/DG-Mesh),[SCGS](https://github.com/yihua7/SC-GS) and [2DGS](https://github.com/hbb1/2d-gaussian-splatting/tree/main), thanks to these great works.
+* Our work is developed on the basis of [DG-Mesh](https://github.com/Isabella98Liu/DG-Mesh), [SCGS](https://github.com/yihua7/SC-GS) and [2DGS](https://github.com/hbb1/2d-gaussian-splatting/tree/main), thanks to these great works.
 
 ```
 @misc{liu2024dynamic,
