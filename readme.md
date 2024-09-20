@@ -2,12 +2,16 @@
   Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects
 </h1>
 
-This is the code for Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects.
+### [arXiv Paper](https://arxiv.org/abs/2403.19586)
 
-<div align="center">
-  
+[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2</sup>,[Bin Feng]() <sup>1</sup>,
+[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
 
-</div>
+<sup>1</sup> School of Electronic Information and Communications, Huazhong University of Science and Technology \
+<sup>2</sup>  School of Computer Science &Technology, Huazhong University of Science and Technology 
+
+(\* equal contribution,📧 corresponding author) 
+
 
 <div align="center">
   <img src="./assets/bouncingballs.gif" width="24.5%">
