@@ -10,10 +10,11 @@ This is the code for Dynamic 2D Gaussians: Geometrically accurate radiance field
 </div>
 
 <div align="center">
-  <img src="./assets/bouncingballs.gif" width="24.5%">
-  <img src="./assets/trex.gif" width="28%">
-  <img src="./assets/jumpingjacks.gif" width="24.5%">
-  <img src="./assets/standup.gif" width="24.5%">
+  <img src="./assets/bouncingballs.gif" width="23.5%">
+  <img src="./assets/trex.gif" width="27.5%">
+  <img src="./assets/jumpingjacks.gif" width="23.5%">
+  <img src="./assets/standup.gif" width="23.5%">
+
 </div>
 
 *With interactive editing empowered by SC-GS, users can effortlessly edit and customize their digital assets with interactive editing features.*
