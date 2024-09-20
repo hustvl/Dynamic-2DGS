@@ -13,8 +13,8 @@
 
 ### [arXiv Paper](https://arxiv.org/abs/2403.19586)
 
-[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Bin Feng]() <sup>1</sup>,
-[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
+[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Bin Feng]() <sup>1</sup>,
+[Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
 
 <sup>1</sup> School of Electronic Information and Communications, Huazhong University of Science and Technology \
 <sup>2</sup>  School of Computer Science &Technology, Huazhong University of Science and Technology 
@@ -25,6 +25,7 @@
 
 ---
 
+## Abstract
 <div align="center">
   <img src="./assets/teaser.png" width="100%" height="100%">
 </div>
@@ -34,21 +35,7 @@
 
 ## Updates
 
-### 2024-03-17: 
-
-1. Editing **static scenes** is now supported! Simply include the `--is_scene_static` argument and you are good to go!
-
-2. Video rendering is now supported with interpolation of editing results. Press the button `sv_kpt` to save each edited result and press `render_traj` to render the interpolated motions as a video. Click the `spiral` to switch the camera-motion pattern of the rendered video between a spiral trace and a fixed pose.
-
-3. On self-captured real-world scenes where Gaussian number will be too large, the dimension of hyper coordinates that seperate close but disconnected parts can be set to 2 to speed up the rendering: ` --hyper_dim 2`. Also remember to remove `--is_blender` in such cases!
-
-### 2024-03-07
-
-We offer two ARAP deformation strategies for motion editing: 1. iterative deformation and 2. deformation from Laplacian initialization.
-
-### 2024-03-06
-
-To prevent initialization failure of control points, you use the argument `--init_isotropic_gs_with_all_colmap_pcl` on self-captured datasets.
+### 2024-03-17:
 
 
 ## Install
