@@ -76,9 +76,18 @@ CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/
 
 ## Acknowledgement
 
-* Our work is developed on the basis of [SCGS](https://github.com/yihua7/SC-GS) and [2DGS](https://github.com/hbb1/2d-gaussian-splatting/tree/main), thanks to these two great works.
+* Our work is developed on the basis of [DG-Mesh](https://github.com/Isabella98Liu/DG-Mesh),[SCGS](https://github.com/yihua7/SC-GS) and [2DGS](https://github.com/hbb1/2d-gaussian-splatting/tree/main), thanks to these great works.
 
 ```
+@misc{liu2024dynamic,
+ title={Dynamic Gaussians Mesh: Consistent Mesh Reconstruction from Monocular Videos}, 
+ author={Isabella Liu and Hao Su and Xiaolong Wang},
+ year={2024},
+ eprint={2404.12379},
+ archivePrefix={arXiv},
+ primaryClass={cs.CV}
+}
+
 @article{huang2023sc,
   title={SC-GS: Sparse-Controlled Gaussian Splatting for Editable Dynamic Scenes},
   author={Huang, Yi-Hua and Sun, Yang-Tian and Yang, Ziyi and Lyu, Xiaoyang and Cao, Yan-Pei and Qi, Xiaojuan},
