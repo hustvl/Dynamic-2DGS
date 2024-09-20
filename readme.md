@@ -54,6 +54,11 @@ pip install ./submodules/diff-gaussian-rasterization
 pip install ./submodules/simple-knn
 ```
 
+## Data
+We use the following dataset:
+* [D-NeRF](https://www.albertpumarola.com/research/D-NeRF/index.html): dynamic scenes of synthetic objects ([download](https://www.dropbox.com/s/0bf6fl0ye2vz3vr/data.zip?e=1&dl=0))
+* [DG-Mesh](https://github.com/Isabella98Liu/DG-Mesh?tab=readme-ov-file): dynamic scenes of synthetic objects ([download](https://drive.google.com/file/d/1yBga2DsIKG6zQK9V2WextewvhaV8Xho3/view))
+
 ## Run
 
 ### Train
