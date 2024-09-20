@@ -190,7 +190,7 @@ def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_
     else:
         mask = (1-(torch.all(rendered_image <= 0.05, dim=0)).to(torch.int))
     #print(mask)
-    #mask = 1
+    mask = 1
     render_alpha = allmap[1:2]
 
     # get normal map
