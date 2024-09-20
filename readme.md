@@ -17,7 +17,6 @@ This is the code for Dynamic 2D Gaussians: Geometrically accurate radiance field
 
 </div>
 
-*With interactive editing empowered by SC-GS, users can effortlessly edit and customize their digital assets with interactive editing features.*
 
 <div align="center">
   <img src="./assets/teaser.png" width="100%" height="100%">
