@@ -1,11 +1,3 @@
-
-<div align="center">
-  <img src="./assets/bouncingballs.gif" width="24.5%">
-  <img src="./assets/horse.gif" width="24.5%">
-  <img src="./assets/jumpingjacks.gif" width="24.5%">
-  <img src="./assets/standup.gif" width="24.5%">
-
-</div>
 <div align="center">
 <h1 align="center">
   Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects
@@ -32,10 +24,19 @@
 
 *Framework of our D-2DGS. Sparse points are bonded with canonical 2D Gaussians. Deformation networks are used to predict each sparse control point's control signals given any timestamp. The image and depth are rendered by deformed 2D Gaussians with alpha blending. To get high-quality meshes, depth images are filtered by rendered images with RGB mask, and then TSDF is applied on multiview depth images and RGB images.*
 
+## Demo
+
+<div align="center">
+  <img src="./assets/bouncingballs.gif" width="24.5%">
+  <img src="./assets/horse.gif" width="24.5%">
+  <img src="./assets/jumpingjacks.gif" width="24.5%">
+  <img src="./assets/standup.gif" width="24.5%">
+
+</div>
 
 ## Updates
 
-### 2024-03-17:
+### 2024-09-20: Upload code
 
 
 ## Install
