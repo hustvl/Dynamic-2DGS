@@ -70,37 +70,29 @@ CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/
 
 ## Acknowledgement
 
-* This framework has been adapted from the notable [Deformable 3D Gaussians](https://github.com/ingra14m/Deformable-3D-Gaussians), an excellent and pioneering work by [Ziyi Yang](https://github.com/ingra14m).
-```
-@article{yang2023deformable3dgs,
-    title={Deformable 3D Gaussians for High-Fidelity Monocular Dynamic Scene Reconstruction},
-    author={Yang, Ziyi and Gao, Xinyu and Zhou, Wen and Jiao, Shaohui and Zhang, Yuqing and Jin, Xiaogang},
-    journal={arXiv preprint arXiv:2309.13101},
-    year={2023}
-}
-```
+* Our work is developed on the basis of [SCGS](https://github.com/yihua7/SC-GS) and [2DGS](https://github.com/hbb1/2d-gaussian-splatting/tree/main), thanks to these two great works.
 
-* Credits to authors of [3D Gaussians](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/) for their excellent code.
 ```
-@Article{kerbl3Dgaussians,
-      author       = {Kerbl, Bernhard and Kopanas, Georgios and Leimk{\"u}hler, Thomas and Drettakis, George},
-      title        = {3D Gaussian Splatting for Real-Time Radiance Field Rendering},
-      journal      = {ACM Transactions on Graphics},
-      number       = {4},
-      volume       = {42},
-      month        = {July},
-      year         = {2023},
-      url          = {https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/}
-}
-```
-
-## Citing
-If you find our work useful, please consider citing:
-```BibTeX
 @article{huang2023sc,
   title={SC-GS: Sparse-Controlled Gaussian Splatting for Editable Dynamic Scenes},
   author={Huang, Yi-Hua and Sun, Yang-Tian and Yang, Ziyi and Lyu, Xiaoyang and Cao, Yan-Pei and Qi, Xiaojuan},
   journal={arXiv preprint arXiv:2312.14937},
   year={2023}
 }
+
+@inproceedings{Huang2DGS2024,
+    title={2D Gaussian Splatting for Geometrically Accurate Radiance Fields},
+    author={Huang, Binbin and Yu, Zehao and Chen, Anpei and Geiger, Andreas and Gao, Shenghua},
+    publisher = {Association for Computing Machinery},
+    booktitle = {SIGGRAPH 2024 Conference Papers},
+    year      = {2024},
+    doi       = {10.1145/3641519.3657428}
+}
+```
+
+
+## Citing
+If you find our work useful, please consider citing:
+```BibTeX
+
 ```
