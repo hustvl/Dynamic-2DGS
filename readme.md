@@ -6,16 +6,14 @@ This is the code for Dynamic 2D Gaussians: Geometrically accurate radiance field
 
 <div align="center">
   
-[![Website](assets/badge-website.svg)](https://yihua7.github.io/SC-GS-web/)
-[![Paper](https://img.shields.io/badge/arXiv-PDF-b31b1b)](https://arxiv.org/abs/2312.14937)
 
 </div>
 
 <div align="center">
-  <img src="./assets/edited_jumpingjacks.gif" width="24.5%">
-  <img src="./assets/edited_hook.gif" width="24.5%">
-  <img src="./assets/edited_mutant.gif" width="24.5%">
-  <img src="./assets/edited_lego.gif" width="24.5%">
+  <img src="./assets/bouncingballs.gif" width="24.5%">
+  <img src="./assets/jumpingjacks.gif" width="24.5%">
+  <img src="./assets/standup.gif" width="24.5%">
+  <img src="./assets/trex.gif" width="24.5%">
 </div>
 
 *With interactive editing empowered by SC-GS, users can effortlessly edit and customize their digital assets with interactive editing features.*
