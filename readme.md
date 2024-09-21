@@ -48,7 +48,7 @@ cd Dynamic-2DGS
 pip install -r requirements.txt
 
 # a modified gaussian splatting (+ depth, alpha rendering)
-pip install ./submodules/diff-gaussian-rasterization
+pip install ./submodules/diff-surfel-rasterization
 
 # simple-knn
 pip install ./submodules/simple-knn
@@ -72,6 +72,13 @@ CUDA_VISIBLE_DEVICES=0 python train_gui.py --source_path YOUR/PATH/TO/DATASET/ju
 ```bash
 CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
 ```
+
+### 3D Printing
+Reconstruct the mesh through our model and 3D print it:
+<div align="center">
+  <img src="./assets/print.png" width="50%" height="50%">
+</div>
+
 
 
 ## Acknowledgement
