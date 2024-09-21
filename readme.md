@@ -9,9 +9,9 @@
 [Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
 
 <sup>1</sup> School of Electronic Information and Communications, Huazhong University of Science and Technology \
-<sup>2</sup>  School of Computer Science &Technology, Huazhong University of Science and Technology 
+<sup>2</sup>  School of Computer Science & Technology, Huazhong University of Science and Technology 
 
-(\* equal contribution,📧 corresponding author) 
+(\* Equal contributions.📧 Corresponding author) 
 
 </div>
 
@@ -36,10 +36,10 @@
 
 ## Updates
 
-### 2024-09-20: Upload code
+- 2024-09-20: Upload code
 
 
-## Install
+## Installation
 
 ```bash
 git clone --recursive
@@ -61,13 +61,13 @@ We use the following dataset:
 
 ## Run
 
-### Train
+### Training
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python train_gui.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node  --is_blender --eval --gt_alpha_mask_as_scene_mask --local_frame --resolution 1 --W 800 --H 800
 ```
 
-### Evalualuate
+### Evalualuation
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
@@ -79,7 +79,11 @@ Reconstruct the mesh through our model and 3D print it:
   <img src="./assets/print.jpg" width="50%" height="50%">
 </div>
 
+## Citation
+If you find our work useful, please consider citing:
+```BibTeX
 
+```
 
 ## Acknowledgement
 
@@ -113,8 +117,4 @@ Reconstruct the mesh through our model and 3D print it:
 ```
 
 
-## Citing
-If you find our work useful, please consider citing:
-```BibTeX
 
-```
