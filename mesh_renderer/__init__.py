@@ -2,25 +2,12 @@ import torch
 #from scene import Scene
 import os
 from tqdm import tqdm
-#from os import makedirs
-#from gaussian_renderer import render
-#import torchvision
-#from utils.general_utils import safe_state
-#from argparse import ArgumentParser
-#from arguments import ModelParams, PipelineParams, get_combined_args,ModelHiddenParams
-#from gaussian_renderer import GaussianModel
-#from utils.mesh_utils import GaussianExtractor, to_cam_open3d, post_process_mesh
-#from utils.render_utils import generate_path, create_videos
 import nvdiffrast.torch as dr
 from utils.graphics_utils import getWorld2View2
 #from plyfile import PlyData
 import numpy as np
 import torch
-#import cv2
-#import open3d as o3d
 import plyfile
-#from scipy.spatial import Delaunay
-#from pytorch3d.transforms import Transform3d
 import math
 from pytorch3d.structures import Meshes
 from pytorch3d.renderer import (
@@ -91,11 +78,6 @@ def render_mesh(viewpoint_camera, verts, faces, vertex_colors, whitebackground):
     mesh_v_pos_bxnx3 = verts
     mesh_t_pos_idx_fx3 = faces.to(torch.int32)
     mesh_v_feat_bxnxd = vertex_colors
-    '''
-    mesh_v_pos_bxnx3 = torch.from_numpy(np.asarray(mesh.vertices)).unsqueeze(0).to(torch.float32).cuda()
-    mesh_t_pos_idx_fx3 = torch.from_numpy(np.asarray(mesh.triangles)).to(torch.int32).cuda()
-    mesh_v_feat_bxnxd = torch.from_numpy(np.asarray(mesh.vertex_colors)).unsqueeze(0).to(torch.float32).cuda()
-    '''
  
     our_R = viewpoint_camera.R
     our_T = viewpoint_camera.T
@@ -177,14 +159,6 @@ def mesh_shape_renderer(
     mesh = Meshes(
         verts=vertices.unsqueeze(0), faces=faces.unsqueeze(0), textures=textures
     )
-    
-    '''
-    c2w_blender = torch.tensor(viewpoint_cam.orig_transform).cuda().float()
-    c2w_p3d = c2w_blender @ blender2p3d
-    w2c_p3d = torch.inverse(c2w_p3d)
-    R = w2c_p3d[:3, :3].T.clone().detach().unsqueeze(0)
-    T = w2c_p3d[:3, 3].clone().detach().unsqueeze(0)
-    '''
     
     R = torch.from_numpy(viewpoint_cam.R).unsqueeze(0)
     T = torch.from_numpy(viewpoint_cam.T).unsqueeze(0)

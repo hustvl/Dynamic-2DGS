@@ -21,18 +21,6 @@ import numpy as np
 import cv2
 
 
-# def quaternion_multiply(q1, q2):
-#     w1, x1, y1, z1 = q1[..., 0], q1[..., 1], q1[..., 2], q1[..., 3]
-#     w2, x2, y2, z2 = q2[..., 0], q2[..., 1], q2[..., 2], q2[..., 3]
-
-#     w = w1 * w2 - x1 * x2 - y1 * y2 - z1 * z2
-#     x = w1 * x2 + x1 * w2 + y1 * z2 - z1 * y2
-#     y = w1 * y2 - x1 * z2 + y1 * w2 + z1 * x2
-#     z = w1 * z2 + x1 * y2 - y1 * x2 + z1 * w2
-
-#     return torch.stack((w, x, y, z), dim=-1)
-
-
 def standardize_quaternion(quaternions: torch.Tensor) -> torch.Tensor:
     return torch.where(quaternions[..., 0:1] < 0, -quaternions, quaternions)
 
@@ -150,17 +138,6 @@ def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_
         scales = scale_const * torch.ones_like(scales)
 
     # Rasterize visible Gaussians to image, obtain their radii (on screen). 
-    '''
-    rendered_image, radii, depth, alpha = rasterizer(
-        means3D=means3D,
-        means2D=means2D,
-        shs=shs,
-        colors_precomp=colors_precomp,
-        opacities=opacity,
-        scales=scales,
-        rotations=rotations,
-        cov3D_precomp=cov3D_precomp)
-    '''
     rendered_image, radii, allmap = rasterizer(
         means3D = means3D,
         means2D = means2D,
@@ -219,16 +196,6 @@ def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_
     surf_depth = render_depth_expected * (1-pipe.depth_ratio) + (pipe.depth_ratio) * render_depth_median
     surf_depth = surf_depth*mask
     
-    #mask2 = mask.cpu().numpy()*255
-    #cv2.imwrite('mask2.png',mask2)
-    '''
-    surf_depth2 = surf_depth.float().permute(1, 2, 0).cpu().numpy()*255
-    cv2.imwrite('surf_depth2.png',surf_depth2)
-    surf_depth = surf_depth*mask
-    surf_depth2 = surf_depth.float().permute(1, 2, 0).cpu().numpy()*255
-    cv2.imwrite('surf_depth3.png',surf_depth2)
-    '''
-    
     
     # assume the depth points form the 'surface' and generate psudo surface normal for regularizations.
     surf_normal, surf_point = depth_to_normal(viewpoint_camera, surf_depth)
@@ -237,15 +204,6 @@ def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_
     # remember to multiply with accum_alpha since render_normal is unnormalized.
     surf_normal = surf_normal * (render_alpha).detach()
     surf_normal = surf_normal*mask
-    
-    '''
-    mask2 = mask.float().cpu().numpy()*255
-    cv2.imwrite('mask.png',mask2)
-    rendered_image2 = rendered_image.permute(1, 2, 0).cpu().numpy()*255
-    cv2.imwrite('rendered_image2.png',rendered_image2)
-    #print(a)
-    '''
-
 
     rets.update({
             'alpha': render_alpha,
@@ -258,16 +216,6 @@ def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_
     })
 
     return rets
-
-    '''
-    return {"render": rendered_image,
-            "viewspace_points": screenspace_points,
-            "visibility_filter": radii > 0,
-            "radii": radii,
-            "depth": depth,
-            "alpha": alpha,
-            "bg_color": bg}
-    '''
 
 
 def render_flow(
