@@ -28,6 +28,10 @@ import open3d as o3d
 import numpy as np
 from mesh_renderer import render_mesh, mesh_shape_renderer
 import cv2
+import json
+import os
+from PIL import Image
+from read_gt_mesh import load_obj
 
 
 def clean_mesh(mesh, edge_threshold: float = 0.1, min_triangles_connected: int = -1, fill_holes: bool = True) -> (torch.Tensor, torch.Tensor, torch.Tensor):
@@ -103,10 +107,6 @@ if __name__ == "__main__":
     args.depth_trunc = 6
     #model._white_background = args.depth_trunc
     print(model._white_background)
-    #model._white_background =  args.white_background2
-    #print(model._white_background)
-    #args.voxel_size = 0.002
-    #args.num_cluster = 860
     
     # Load config file
     '''
@@ -162,40 +162,8 @@ if __name__ == "__main__":
                     input_dir=traj_dir, 
                     out_name='render_traj', 
                     num_frames=n_fames)
-    
-    '''
-    if not args.skip_mesh:
-        timelist = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
-        #timelist = [0.5]
-        for mesh_time in timelist:
-            print("export mesh ...")
-            os.makedirs(train_dir, exist_ok=True)
-            # set the active_sh to 0 to export only diffuse texture
-            gaussExtractor.gaussians.active_sh_degree = 0
-            gaussExtractor.reconstruction(scene.getTrainCameras_mesh(mesh_time =mesh_time),pipeline,background,deform,state="mesh")
-            # extract the mesh and save
-            if args.unbounded:
-                name = f'fuse_unbounded_{mesh_time}.ply'
-                mesh = gaussExtractor.extract_mesh_unbounded(resolution=args.mesh_res)
-            else:
-                name = f'fuse_{mesh_time}.ply'
-                mesh = gaussExtractor.extract_mesh_bounded(voxel_size=args.voxel_size, sdf_trunc=5*args.voxel_size, depth_trunc=args.depth_trunc)
+                 
             
-            o3d.io.write_triangle_mesh(os.path.join(train_dir, name), mesh)
-            print("mesh saved at {}".format(os.path.join(train_dir, name)))
-            # post-process the mesh and save, saving the largest N clusters
-            mesh_post = post_process_mesh(mesh, cluster_to_keep=args.num_cluster)
-            o3d.io.write_triangle_mesh(os.path.join(train_dir, name.replace('.ply', '_post.ply')), mesh_post)
-            print("mesh post processed saved at {}".format(os.path.join(train_dir, name.replace('.ply', '_post.ply'))))
-    '''        
-            
-            
-            
-    import json
-    import os
-    from PIL import Image
-    from read_gt_mesh import load_obj
-
 
     file_path = os.path.join(args.source_path,"transforms_test.json")
 
@@ -224,10 +192,7 @@ if __name__ == "__main__":
         os.mkdir(meshshape_gt_save_path)
     
     if not args.skip_mesh:
-        #timelist = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
-        #timelist = [0.5]
         for i in range(len(timelist)):
-            #if i %10 ==0:
             mesh_time = timelist[i]
             print("export mesh ...")
             os.makedirs(train_dir, exist_ok=True)
@@ -248,16 +213,6 @@ if __name__ == "__main__":
             # post-process the mesh and save, saving the largest N clusters
             mesh_post = post_process_mesh(mesh, cluster_to_keep=args.num_cluster)
             #mesh_post = mesh_post.fill_holes()
-
-            '''
-            mesh_new = o3d.t.geometry.TriangleMesh.from_legacy(mesh_post)
-            mesh_new.vertex_colors = o3d.core.Tensor(mesh_post.vertex_colors, dtype=o3d.core.Dtype.Float32)
-
-            print(mesh_new.vertex_colors)
-            mesh_new.fill_holes().cuda()
-            print(type(mesh_new))
-            mesh_post = mesh_new
-            '''
 
             o3d.io.write_triangle_mesh(os.path.join(train_dir, name), mesh_post)
             print("mesh post processed saved at {}".format(os.path.join(train_dir, name)))
@@ -288,48 +243,5 @@ if __name__ == "__main__":
             print('save images')
             cv2.imwrite(meshshape_save_path+f"/{imagename}.png", mesh_image_shape_np)
             
-            
-            
-            
-            '''
-            blender2opencv = torch.tensor([[1, 0, 0, 0],
-                                [0, -1, 0, 0],
-                                [0, 0, -1, 0],
-                                [0, 0, 0, 1]]).float().cuda()
-            rotate_mtx_dgmesh = torch.inverse(
-                    torch.tensor([
-                        [1, 0, 0],
-                        [0, 0, -1],
-                        [0, 1, 0],
-                    ]).cuda().float()
-                )
-            
-            
-            verts_gt,faces_gt = load_obj(f"/data3/zhangshuai/SC-2DGSv2/data/dgmesh/duck/mesh_gt/MallardFemale{i}.obj")
-            #verts_gt,faces_gt = load_obj(f"/data3/zhangshuai/SC-2DGSv2/data/dgmesh/torus2sphere/mesh_gt/deform{i+1}.obj")
-            verts_gt = torch.from_numpy(np.asarray(verts_gt)).to(torch.float32).cuda()
-            #cam_origin = [0, 0, 1.0] #horse
-            cam_origin = [0, 0, 0]
-            if cam_origin is not None:
-                cam_origin = np.hstack((cam_origin, 1))
-                cam_origin = blender2opencv @ torch.tensor(cam_origin).cuda().float()
-                cam_origin = cam_origin[:3]
-                cam_origin = torch.inverse(rotate_mtx_dgmesh) @ cam_origin
-                verts_gt = verts_gt - torch.tensor(cam_origin).cuda().float()
-            verts_gt = verts_gt @ rotate_mtx_dgmesh
-            #verts_gt = verts_gt.T
-            verts_gt = verts_gt.unsqueeze(0)
-            
-            
-            faces_gt = torch.from_numpy(np.asarray(faces_gt)).to(torch.int32).cuda()
-            
-
-            #mesh_image_shape = mesh_shape_renderer(verts_gt, faces_gt, viewpoint_cam)
-            mesh_image_shape = mesh_shape_renderer(verts_gt, faces_gt, viewpoint_cam)
-            mesh_image_shape_np = mesh_image_shape.detach().cpu().numpy() * 255
-            imagename = str(i).zfill(5)
-            print('save images')
-            cv2.imwrite(meshshape_gt_save_path+f"/{imagename}.png", mesh_image_shape_np)
-            '''
     
     
