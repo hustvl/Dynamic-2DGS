@@ -80,7 +80,7 @@ CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/
 Reconstruct the mesh through our model and 3D print it:
 <div align="center">
 <img src="./assets/print.jpg" width="45%">
-<img src="./assets/trex.gif" width="45%">
+<img src="./assets/trex.gif" width="35%">
 </div>
 
 ## Citation
