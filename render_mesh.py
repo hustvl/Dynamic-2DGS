@@ -227,18 +227,13 @@ if __name__ == "__main__":
             mesh_image = rets["render"]
             mesh_img = mesh_image.cpu().detach().numpy()
             mesh_img = mesh_img*255
-            #im = Image.fromarray(mesh_img)
-            #im.save("rgb.png")
             imagename = str(i).zfill(5)
             print('save images')
             cv2.imwrite(images_save_path+f"/{imagename}.png", mesh_img)
             
             
             mesh_image_shape = mesh_shape_renderer(verts, faces, viewpoint_cam)
-            #mesh_image_shape = mesh_shape_renderer(verts, faces, viewpoint_cam)
             mesh_image_shape_np = mesh_image_shape.detach().cpu().numpy() * 255
-            #im = Image.fromarray(mesh_img)
-            #im.save("rgb.png")
             imagename = str(i).zfill(5)
             print('save images')
             cv2.imwrite(meshshape_save_path+f"/{imagename}.png", mesh_image_shape_np)
