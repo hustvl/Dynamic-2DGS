@@ -42,16 +42,19 @@
 ## Installation
 
 ```bash
-git clone --recursive
+git clone --recursive git@github.com:hustvl/Dynamic-2DGS.git
 cd Dynamic-2DGS
+conda create --name dynamic-2dgs python=3.8.0
+conda activate dynamic-2dgs
+
+pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
+
+pip install ./submodules/diff-surfel-rasterization
+pip install ./submodules/simple-knn
+pip install git+https://github.com/NVlabs/nvdiffrast/
+pip install "git+https://github.com/facebookresearch/pytorch3d.git"
 
 pip install -r requirements.txt
-
-# a modified gaussian splatting (+ depth, alpha rendering)
-pip install ./submodules/diff-surfel-rasterization
-
-# simple-knn
-pip install ./submodules/simple-knn
 ```
 
 ## Data
