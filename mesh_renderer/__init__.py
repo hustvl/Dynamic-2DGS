@@ -71,8 +71,6 @@ def render_mesh(viewpoint_camera, verts, faces, vertex_colors, whitebackground):
     Background tensor (bg_color) must be on GPU!
     """
     
-    #mesh = o3d.io.read_triangle_mesh(mesh_path)
-    
     ctx = dr.RasterizeCudaContext(device="cuda")
     
     mesh_v_pos_bxnx3 = verts
@@ -92,8 +90,6 @@ def render_mesh(viewpoint_camera, verts, faces, vertex_colors, whitebackground):
     
     v_pos_clip  = transform_pos(r_mvp, mesh_v_pos_bxnx3)
     v_pos_clip = v_pos_clip.squeeze(0)
-    
-    #v_pos_clip = v_pos_clip.to(torch.int32) 
     
     # Render the image,
     # Here we only return the feature (3D location) at each pixel, which will be used as the input for neural render
