@@ -36,7 +36,7 @@
 
 ## Updates
 
-- 2024-09-20: Upload code
+- 2024-09-24: Release code
 
 ## Installation
 
