@@ -3,7 +3,7 @@
   Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects
 </h1>
 
-### [arXiv Paper](https://arxiv.org/abs/2403.19586)
+### [arXiv Paper](https://arxiv.org/abs/2409.14072)
 
 [Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Bin Feng]() <sup>1</sup>,
 [Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
