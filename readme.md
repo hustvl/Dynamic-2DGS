@@ -85,7 +85,15 @@ Reconstruct the mesh through our model and 3D print it:
 ## Citation
 If you find our work useful, please consider citing:
 ```BibTeX
-
+@misc{zhang2024dynamic2dgaussiansgeometrically,
+      title={Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects}, 
+      author={Shuai Zhang and Guanjun Wu and Xinggang Wang and Bin Feng and Wenyu Liu},
+      year={2024},
+      eprint={2409.14072},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2409.14072}, 
+}
 ```
 
 ## Acknowledgement
