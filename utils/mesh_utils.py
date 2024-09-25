@@ -91,7 +91,7 @@ class GaussianExtractor(object):
         self.viewpoint_stack = []
 
     @torch.no_grad()
-    def reconstruction(self, viewpoint_stack,pipeline,background, deform,state):
+    def reconstruction(self, viewpoint_stack,pipeline,background, deform,state,depth_filtering):
         """
         reconstruct radiance field given cameras
         """
@@ -125,7 +125,7 @@ class GaussianExtractor(object):
             
             d_values = deform.step(xyz.detach(), time_input, feature=self.gaussians.feature, motion_mask=self.gaussians.motion_mask)
             d_xyz, d_rotation, d_scaling, d_opacity, d_color = d_values['d_xyz'], d_values['d_rotation'], d_values['d_scaling'], d_values['d_opacity'], d_values['d_color']
-            results = render(viewpoint_cam, self.gaussians, pipeline, background, d_xyz, d_rotation, d_scaling, d_opacity=d_opacity, d_color=d_color, d_rot_as_res=deform.d_rot_as_res)
+            results = render(viewpoint_cam, self.gaussians, pipeline, background, d_xyz, d_rotation, d_scaling, d_opacity=d_opacity, d_color=d_color, d_rot_as_res=deform.d_rot_as_res, depth_filtering=depth_filtering)
             alpha = results["alpha"]
             rendering = torch.clamp(torch.cat([results["render"], alpha]), 0.0, 1.0)
             

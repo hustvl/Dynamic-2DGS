@@ -38,7 +38,7 @@ def quaternion_multiply(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
     return standardize_quaternion(ab)
 
 
-def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_xyz, d_rotation, d_scaling, d_opacity=None, d_color=None, scaling_modifier=1.0, override_color=None, random_bg_color=False, render_motion=False, detach_xyz=False, detach_scale=False, detach_rot=False, detach_opacity=False, d_rot_as_res=True, scale_const=None, d_rotation_bias=None, force_visible=False):
+def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_xyz, d_rotation, d_scaling, d_opacity=None, d_color=None, scaling_modifier=1.0, override_color=None, random_bg_color=False, render_motion=False, detach_xyz=False, detach_scale=False, detach_rot=False, detach_opacity=False, d_rot_as_res=True, scale_const=None, d_rotation_bias=None, force_visible=False, depth_filtering=False):
     """
     Render the scene. 
     
@@ -162,11 +162,13 @@ def render(viewpoint_camera, pc: GaussianModel, pipe, bg_color: torch.Tensor, d_
 
     #bg_color = [1, 1, 1] if dataset.white_background else [0, 0, 0]
     whitebackground = torch.tensor([1, 1, 1], dtype=torch.float32, device="cuda")
-    if bg_color.equal(whitebackground):
-        mask = (1-(torch.all(rendered_image >= 0.95, dim=0)).to(torch.int))
+    if depth_filtering:
+        if bg_color.equal(whitebackground):
+            mask = (1-(torch.all(rendered_image >= 0.95, dim=0)).to(torch.int))
+        else:
+            mask = (1-(torch.all(rendered_image <= 0.05, dim=0)).to(torch.int))
     else:
-        mask = (1-(torch.all(rendered_image <= 0.05, dim=0)).to(torch.int))
-    mask = 1
+        mask = 1
     render_alpha = allmap[1:2]
 
     # get normal map

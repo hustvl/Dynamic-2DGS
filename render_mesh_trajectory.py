@@ -109,6 +109,7 @@ if __name__ == "__main__":
     args = get_combined_args(parser)
     #args = parser.parse_args(sys.argv[1:])
     args.depth_trunc = 6
+    depth_filtering = True
     #model._white_background = args.depth_trunc
     print(model._white_background)
     #model._white_background =  args.white_background2
@@ -147,14 +148,14 @@ if __name__ == "__main__":
     if not args.skip_train:
         print("export training images ...")
         os.makedirs(train_dir, exist_ok=True)
-        gaussExtractor.reconstruction(scene.getTrainCameras(),pipeline,background,deform,state="train")
+        gaussExtractor.reconstruction(scene.getTrainCameras(),pipeline,background,deform,state="train",depth_filtering=depth_filtering)
         gaussExtractor.export_image(train_dir)
         
     
     if (not args.skip_test) and (len(scene.getTestCameras()) > 0):
         print("export rendered testing images ...")
         os.makedirs(test_dir, exist_ok=True)
-        gaussExtractor.reconstruction(scene.getTestCameras(),pipeline,background,deform,state="test")
+        gaussExtractor.reconstruction(scene.getTestCameras(),pipeline,background,deform,state="test",depth_filtering=depth_filtering)
         gaussExtractor.export_image(test_dir)
     
     
@@ -164,7 +165,7 @@ if __name__ == "__main__":
         os.makedirs(traj_dir, exist_ok=True)
         n_fames = 240
         cam_traj = generate_path(scene.getTrainCameras(), n_frames=n_fames)
-        gaussExtractor.reconstruction(cam_traj,pipeline,background,deform,state="video")
+        gaussExtractor.reconstruction(cam_traj,pipeline,background,deform,state="video",depth_filtering=depth_filtering)
         gaussExtractor.export_image(traj_dir)
         create_videos(base_dir=traj_dir,
                     input_dir=traj_dir, 
@@ -207,7 +208,7 @@ if __name__ == "__main__":
             os.makedirs(train_dir, exist_ok=True)
             # set the active_sh to 0 to export only diffuse texture
             gaussExtractor.gaussians.active_sh_degree = 0
-            gaussExtractor.reconstruction(scene.getTrainCameras_mesh(mesh_time =mesh_time),pipeline,background,deform,state="mesh")
+            gaussExtractor.reconstruction(scene.getTrainCameras_mesh(mesh_time =mesh_time),pipeline,background,deform,state="mesh",depth_filtering=depth_filtering)
             # extract the mesh and save
             if args.unbounded:
                 #name = f'fuse_unbounded_{mesh_time}.ply'
