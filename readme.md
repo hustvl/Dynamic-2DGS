@@ -72,8 +72,7 @@ We use the following dataset:
 CUDA_VISIBLE_DEVICES=0 python train_gui.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node  --is_blender --eval --gt_alpha_mask_as_scene_mask --local_frame --resolution 1 --W 800 --H 800
 ```
 
-### Evaluation
-
+### Rendering
 Rendering test views:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
@@ -84,6 +83,7 @@ Render a view track:
 CUDA_VISIBLE_DEVICES=0 python render_mesh_trajectory.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
 ```
 
+### Evaluation
 Evaluating the rendered image:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python metrics.py -m outputs/jumpingjacks
