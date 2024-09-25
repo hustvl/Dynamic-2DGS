@@ -74,9 +74,22 @@ CUDA_VISIBLE_DEVICES=0 python train_gui.py --source_path YOUR/PATH/TO/DATASET/ju
 
 ### Evaluation
 
+Rendering test views:
 ```bash
 CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
 ```
+
+Render a view track:
+```bash
+CUDA_VISIBLE_DEVICES=0 python render_mesh_trajectory.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
+```
+
+Evaluating the rendered image:
+```bash
+CUDA_VISIBLE_DEVICES=0 python metrics.py -m outputs/jumpingjacks
+```
+
+To evaluate the quality of the mesh, you can refer to the [DG-Mesh](https://github.com/Isabella98Liu/DG-Mesh) repository.
 
 ### 3D Printing
 Reconstruct the mesh through our model and 3D print it:
