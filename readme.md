@@ -1,11 +1,11 @@
 <div align="center">
 <h1 align="center">
-  Dynamic 2D Gaussians: Geometrically accurate radiance fields for dynamic objects
+  Dynamic 2D Gaussians: Geometrically Accurate Radiance Fields for Dynamic Objects
 </h1>
 
 ### [arXiv Paper](https://arxiv.org/abs/2409.14072)
 
-[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Bin Feng]() <sup>1</sup>,
+[Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Bin Feng](https://scholar.google.com/citations?user=nRc8u6gAAAAJ&hl=en&oi=ao) <sup>1</sup>,
 [Wenyu Liu](http://eic.hust.edu.cn/professor/liuwenyu) <sup>1,📧</sup>
 
 <sup>1</sup> School of Electronic Information and Communications, Huazhong University of Science and Technology \
@@ -18,6 +18,9 @@
 ---
 
 ## Abstract
+
+Reconstructing objects and extracting high-quality surfaces play a vital role in the real world. Current 4D representations show the ability to render high-quality novel views for dynamic objects but cannot reconstruct high-quality meshes due to their implicit or geometrically inaccurate representations. In this paper, we propose a novel representation that can reconstruct accurate meshes from sparse image input, named Dynamic 2D Gaussians (D-2DGS). We adopt 2D Gaussians for basic geometry representation and use sparse-controlled points to capture 2D Gaussian's deformation. By extracting the object mask from the rendered high-quality image and masking the rendered depth map, a high-quality dynamic mesh sequence of the object can be extracted. Experiments demonstrate that our D-2DGS is outstanding in reconstructing high-quality meshes from sparse input.
+
 <div align="center">
   <img src="./assets/teaser.png" width="100%" height="100%">
 </div>
@@ -69,7 +72,7 @@ We use the following dataset:
 CUDA_VISIBLE_DEVICES=0 python train_gui.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node  --is_blender --eval --gt_alpha_mask_as_scene_mask --local_frame --resolution 1 --W 800 --H 800
 ```
 
-### Evalualuation
+### Evaluation
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python render_mesh.py --source_path YOUR/PATH/TO/DATASET/jumpingjacks --model_path outputs/jumpingjacks --deform_type node --hyper_dim 8 --is_blender --eval --local_frame --resolution 1
