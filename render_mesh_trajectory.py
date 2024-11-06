@@ -26,7 +26,7 @@ from utils.system_utils import load_config_from_file, merge_config
 from utils.pose_utils import pose_spherical
 import open3d as o3d
 import numpy as np
-from utils.camera_utils import get_camera_trajectory_pose
+# from utils.camera_utils import get_camera_trajectory_pose
 from mesh_renderer import render_mesh, mesh_shape_renderer
 import cv2
 import copy
