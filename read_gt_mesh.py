@@ -70,7 +70,9 @@ def load_obj_mtl(obj_file, mtl_file):
     return vertices, faces, vertex_colors
 
 # Example usage
+'''
 obj_file = '/data3/zhangshuai/DG-Mesh/data/dg-mesh/bird/mesh_gt/bluebird_animated0.obj'
 mtl_file = '/data3/zhangshuai/DG-Mesh/data/dg-mesh/bird/mesh_gt/bluebird_animated0.mtl'
 vertices, faces = load_obj(obj_file)
 print(vertices)
+'''
