@@ -2,7 +2,9 @@
 <h1 align="center">
   Dynamic 2D Gaussians: Geometrically Accurate Radiance Fields for Dynamic Objects
 </h1>
-
+  
+### ACMMM 2025
+  
 ### [arXiv Paper](https://arxiv.org/abs/2409.14072)
 
 [Shuai Zhang](https://github.com/Shuaizhang7) <sup>1\*</sup>, [Guanjun Wu](https://guanjunwu.github.io/) <sup>2\*</sup>,[Xinggang Wang](https://xwcv.github.io/) <sup>1</sup>,[Bin Feng](https://scholar.google.com/citations?user=nRc8u6gAAAAJ&hl=en&oi=ao) <sup>1</sup>,
@@ -38,6 +40,8 @@ Reconstructing objects and extracting high-quality surfaces play a vital role in
 </div>
 
 ## Updates
+
+- 2025-07-05: Accepted by ACMMM 2025
 
 - 2024-09-24: Release code
 
